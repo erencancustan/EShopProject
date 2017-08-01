@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="UTF-8">
+    <link href="~/assets/caprice/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" href="style/images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="~/assets/caprice/css/style.css" media="all">
+    <link href='http://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href="~/assets/dropzone/basic.min.css" rel="stylesheet" />
+    
+    <script src="~/assets/caprice/js/jquery-1.6.4.min.js"></script>
+    <script src="~/assets/caprice/js/ddsmoothmenu.js"></script>
+    <script src="~/assets/caprice/js/jquery.jcarousel.js"></script>
+    <script src="~/assets/caprice/js/jquery.prettyPhoto.js"></script>    
+    <script src="~/assets/caprice/js/jquery.flexslider-min.js"></script>
+    <script src="~/assets/caprice/js/jquery.masonry.min.js"></script>
+    <script src="~/assets/caprice/js/jquery.slickforms.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        @Html.Partial("_SideMenu")
+        <div id="content">
+            @RenderBody()
+            @*@Html.Partial("_Footer")*@
+        </div>
+    </div>
+    <div class="clear"></div>
+    <script src="~/assets/jquery/jquery.min.js"></script>
+    <script src="~/assets/caprice/js/bootstrap.min.js"></script>
+    
+    @RenderSection("javascript", false)
+</body>
+</html>

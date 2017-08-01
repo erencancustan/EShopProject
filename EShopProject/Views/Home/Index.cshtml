@@ -1,0 +1,53 @@
+﻿<div id="content">
+    <div class="container">
+    </div>
+    <div class="container">
+        <div class="col-md-12">
+            <div id="main-slider">
+
+                <div class="item">
+                    <img src="~/assets/images/product-image/slider1.jpg" alt="" class="img-responsive"/>
+                </div>
+                <div class="item">
+                    <img src="~/assets/images/product-image/slider2.jpg" alt="" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/assets/images/product-image/slider3.jpg" alt="" class="img-responsive" />
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <div id="hot">
+
+        <div class="box">
+            <div class="container">
+                <div class="col-md-12">
+                    <h2>Bu Haftada Kampanyalı Ürünlerimiz</h2>
+                </div>
+            </div>
+        </div>
+
+        @Html.Action("GetProductSlider", "Home")
+    </div>
+
+</div>
+
+@section javascript{
+
+    <script>
+
+        function AddToCart(id){
+         $.post('@Url.Action("AddToCart", "Product")',
+        {
+            productId: id,
+            quantity:  '1'
+        },
+        function(data,status){
+            $(document.getElementsByClassName('MyBasket')).html(data);
+        });
+          };
+
+    </script>
+
+}

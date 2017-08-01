@@ -1,0 +1,171 @@
+﻿@using EShopProject.DataAccess.Entity
+@model Category
+
+<div id="content">
+    <div class="container">
+
+        <div class="col-md-12">
+            <ul class="breadcrumb">
+                <li>@Html.ActionLink("Ana Sayfa", "Index", "Home")</li>
+                <li>@Model.Name</li>
+            </ul>
+        </div>
+
+        @Html.Partial("_LeftFilterMenu")
+
+        <div class="col-md-9">
+            <div class="box">
+                <h1>@Model.Name</h1>
+                <p>@Model.Description</p>
+            </div>
+
+           
+                    @*<div class="box info-bar">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 products-showing">
+                            Showing <strong>12</strong> of <strong>25</strong> products
+                        </div>
+
+                        <div class="col-sm-12 col-md-8  products-number-sort">
+                            <div class="row">
+                                <form class="form-inline">
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="products-number">
+                                            <strong>Show</strong>  <a href="#" class="btn btn-default btn-sm btn-primary">12</a>  <a href="#" class="btn btn-default btn-sm">24</a>  <a href="#" class="btn btn-default btn-sm">All</a> products
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="products-sort-by">
+                                            <strong>Sort by</strong>
+                                            <select name="sort-by" class="form-control">
+                                                <option>Price</option>
+                                                <option>Name</option>
+                                                <option>Sales first</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+
+            <div class="row products">
+                @Html.Partial("_MessageDisplay")
+                @{if (Model.ProductList.Count > 0)
+                {
+                    for (int i = 0; i < Model.ProductList.Count; i++)
+                    {
+                        @*<div class="col-md-3 col-sm-3 col-xs-6">*@
+                            <div class="col-md-4 col-sm-6">
+                                <div class="product">
+                                    <div class="flip-container">
+                                        <div class="flipper">
+                                            <div class="front">
+                                                <a href="@Url.Action("Detail", "Product", new { id = Model.ProductList[i].Id })">
+                                                    @if (Model.ProductList[i].ImageList.Count > 0)
+                                                    {
+                                                        <img src="@(Model.ProductList[i].ImageList[0].FilePath)" alt="" class="img-responsive">
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="~/assets/images/product-image/product1_2.jpg" alt="" />
+                                                    }
+                                                </a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="@Url.Action("Detail", "Product", new { id = Model.ProductList[i].Id })">
+                                                    @if (Model.ProductList[i].ImageList.Count > 1)
+                                                    {
+                                                        <img src="@(Model.ProductList[i].ImageList[1].FilePath)" alt="" class="img-responsive">
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="~/assets/images/product-image/product2_2.jpg" alt="" />
+                                                    }
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="@Url.Action("Detail", "Product", new { id = Model.ProductList[i].Id })" class="invisible">
+
+                                        @if (Model.ProductList[i].ImageList.Count > 0)
+                                        {
+                                            <img src="@(Model.ProductList[i].ImageList[0].FilePath)" alt="" class="img-responsive">
+                                        }
+                                        else
+                                        {
+                                            <img src="~/assets/images/product-image/product1_2.jpg" alt="" />
+                                        }
+                                    </a>
+                                    <div class="text">
+                                        <h3><a href="@Url.Action("Detail", "Product", new { id = Model.ProductList[i].Id })">@Model.ProductList[i].Name</a></h3>
+                                        <p class="price">@((Model.ProductList[i].Price).ToString("F")) &#x20BA;</p>
+                                        <p class="buttons">
+                                            <a href="@Url.Action("Detail", "Product", new { id = Model.ProductList[i].Id })" class="btn btn-default">İncele</a>
+                                            <button type="button" class="btn btn-primary" data-id="@Model.ProductList[i].Id" id="addToCart" onclick="AddToCart(this.getAttribute('data-id'))"><i class="fa fa-shopping-cart"></i>Sepete Ekle</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                    }
+                }
+
+                }
+            </div>
+            <!-- /.products -->
+
+            @*<div class="pages">
+
+                <p class="loadMore">
+                    <a href="#" class="btn btn-primary btn-lg"><i class="fa fa-chevron-down"></i> Load more</a>
+                </p>
+
+                <ul class="pagination">
+                    <li>
+                        <a href="#">&laquo;</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+                    <li>
+                        <a href="#">5</a>
+                    </li>
+                    <li>
+                        <a href="#">&raquo;</a>
+                    </li>
+                </ul>
+            </div>*@
+
+
+        </div>
+    </div>
+</div>
+
+@section javascript{
+
+    <script>
+
+        function AddToCart(id){
+         $.post('@Url.Action("AddToCart", "Product")',
+        {
+            productId: id,
+            quantity:  '1'
+        },
+        function(data,status){
+            $(document.getElementsByClassName('MyBasket')).html(data);
+        });
+          };
+
+    </script>
+
+}

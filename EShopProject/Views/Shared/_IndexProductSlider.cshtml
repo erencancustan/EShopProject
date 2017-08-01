@@ -1,0 +1,65 @@
+﻿@using EShopProject.DataAccess.Entity
+@model List<Product>
+
+<div class="container">
+    <div class="product-slider">
+        @foreach (Product product in Model)
+        {
+            <div class="item">
+                <div class="product">
+                    <div class="flip-container">
+                        <div class="flipper">
+                            <div class="front">
+                                <a href="@Url.Action("Detail", "Product", new { id = product.Id })">
+                                    @if (product.ImageList.Count > 0)
+                                    {
+                                        <img src="@(product.ImageList[0].FilePath)" alt="" class="img-responsive">
+                                    }
+                                    else
+                                    {
+                                        <img src="~/assets/images/product-image/product1_2.jpg" alt="" />
+                                    }
+                                </a>
+                            </div>
+                            <div class="back">
+                                <a href="@Url.Action("Detail", "Product", new { id =product.Id })">
+                                    @if (product.ImageList.Count > 1)
+                                    {
+                                        <img src="@(product.ImageList[1].FilePath)" alt="" class="img-responsive">
+                                    }
+                                    else
+                                    {
+                                        <img src="~/assets/images/product-image/product2_2.jpg" alt="" />
+                                    }
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="@Url.Action("Detail", "Product", new { id = product.Id })" class="invisible">
+
+                        @if (product.ImageList.Count > 0)
+                        {
+                            <img src="@(product.ImageList[0].FilePath)" alt="" class="img-responsive">
+                        }
+                        else
+                        {
+                            <img src="~/assets/images/product-image/product1_2.jpg" alt="" />
+                        }
+                    </a>
+                    <div class="text">
+                        <h3><a href="@Url.Action("Detail", "Product", new { id = product.Id })">@product.Name</a></h3>
+                        <p class="price">@((product.Price).ToString("F")) &#x20BA;</p>
+                        <p class="buttons">
+                            <a href="@Url.Action("Detail", "Product", new { id = product.Id })" class="btn btn-default">İncele</a>
+                            <button type="button" class="btn btn-primary" data-id="@product.Id" id="addToCart" onclick="AddToCart(this.getAttribute('data-id'))"><i class="fa fa-shopping-cart"></i>Sepete Ekle</button>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        }
+
+    </div>
+    <!-- /.product-slider -->
+</div>

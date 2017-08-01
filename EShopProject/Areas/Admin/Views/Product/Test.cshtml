@@ -1,0 +1,123 @@
+﻿@using EShopProject.Areas.Admin.Models
+@model ImageModel
+
+
+@*<div class="jumbotron">
+    @using (Html.BeginForm("Test", "Product", FormMethod.Post, new { id = "dropzoneForm", @class = "dropzone", enctype = "multipart/form-data" }))
+    {
+        <div>
+            @Html.LabelFor(m => Model.UserName) :
+            @Html.TextBoxFor(m => Model.UserName)
+        </div>
+                <div>
+                    @Html.LabelFor(m => Model.UserAddress) :
+                    @Html.TextBoxFor(m => Model.UserAddress)
+                </div>
+    }
+    <button id="submit-all">Submit All Files</button>
+</div>*@
+
+<div id="dZUpload" class="dropzone" style="background-color : #cde8f1; height : 200px;">
+    <span>Resimleri buraya bırakın.</span>
+    <div class="dz-default dz-message"></div>
+</div>
+
+@section javascript{
+<script src="~/assets/dropzone/dropzone.min.js"></script>
+
+<script type="text/javascript">
+    //$(document).ready(function () {
+    //    Dropzone.autoDiscover = false;
+    //    $("#dZUpload").dropzone({
+    //        url: "/Admin/Product/Test",
+    //        maxFilesize: 4,
+    //        maxThumbnailFilesize: 4,
+    //        acceptedFiles: "image/jpeg,image/png,image/gif",
+    //        addRemoveLinks: true,
+    //        dictDefaultMessage: "Resimleri buraya yükleyin.",
+    //        dictFallbackMessage: "Tarayıcınız sürükle ve bırak dosya yükleme desteklemiyor.",
+    //        dictFallbackText: "Please use the fallback form below to upload your files like in the olden days.",
+    //        dictFileTooBig: "Dosya çok büyük ({{filesize}} MiB) Maks. Dosya boyutu: {{maxFilesize}} MiB.",
+    //        dictInvalidFileType: "Bu tür dosyalar yükleyemezsiniz.",
+    //        dictResponseError: "Sunucu {{statusCode}} koduyla yanıt verdi.",
+    //        dictCancelUpload: "Yüklemeyi iptal et",
+    //        dictCancelUploadConfirmation: "Bu yüklemeyi iptal etmek istediğinizden emin misiniz ?",
+    //        dictRemoveFile: "Dosyayı kaldır",
+    //        dictMaxFilesExceeded: "Daha fazla dosya yükleyemezsiniz.",
+    //        success: function (file, response) {
+    //            var imgName = response;
+    //            file.previewElement.classList.add("dz-success");
+    //            console.log("Successfully uploaded :" + imgName);
+    //        },
+    //        error: function (file, response) {
+    //            file.previewElement.classList.add("dz-error");
+    //        }
+    //    });
+    //});
+
+    $(document).ready(function () {
+
+        Dropzone.autoDiscover = false;
+
+        $("#dZUpload").dropzone({
+             url: "/Admin/Product/Save",
+            autoProcessQueue: false,
+            maxFilesize: 4,
+            maxThumbnailFilesize: 4,
+            acceptedFiles: "image/jpeg,image/png,image/gif",
+            addRemoveLinks: true,
+            dictDefaultMessage: "Resimleri buraya yükleyin.",
+            dictFallbackMessage: "Tarayıcınız sürükle ve bırak dosya yükleme desteklemiyor.",
+            dictFallbackText: "Please use the fallback form below to upload your files like in the olden days.",
+            dictFileTooBig: "Dosya çok büyük ({{filesize}} MiB) Maks. Dosya boyutu: {{maxFilesize}} MiB.",
+            dictInvalidFileType: "Bu tür dosyalar yükleyemezsiniz.",
+            dictResponseError: "Sunucu {{statusCode}} koduyla yanıt verdi.",
+            dictCancelUpload: "Yüklemeyi iptal et",
+            dictCancelUploadConfirmation: "Bu yüklemeyi iptal etmek istediğinizden emin misiniz ?",
+            dictRemoveFile: "Dosyayı kaldır",
+            dictMaxFilesExceeded: "Daha fazla dosya yükleyemezsiniz.",
+
+            success: function (file, response) {
+                var imgName = response;
+                file.previewElement.classList.add("dz-success");
+                console.log("Successfully uploaded :" + imgName);
+            },
+            error: function (file, response) {
+                file.previewElement.classList.add("dz-error");
+            }
+        });
+
+    });
+
+    //Dropzone.options.dropzoneForm = {
+
+    //    autoProcessQueue: false,
+    //    maxFilesize: 4,
+    //    maxThumbnailFilesize: 4,
+    //    acceptedFiles: "image/jpeg,image/png,image/gif",
+    //    addRemoveLinks: true,
+    //    dictRemoveFile: 'X (remove)',
+    //    dictDefaultMessage: "Resimleri buraya yükleyin.",
+    //    dictFallbackMessage: "Tarayıcınız sürükle ve bırak dosya yükleme desteklemiyor.",
+    //    dictFallbackText: "Please use the fallback form below to upload your files like in the olden days.",
+    //    dictFileTooBig: "Dosya çok büyük ({{filesize}} MiB) Maks. Dosya boyutu: {{maxFilesize}} MiB.",
+    //    dictInvalidFileType: "Bu tür dosyalar yükleyemezsiniz.",
+    //    dictResponseError: "Sunucu {{statusCode}} koduyla yanıt verdi.",
+    //    dictCancelUpload: "Yüklemeyi iptal et",
+    //    dictCancelUploadConfirmation: "Bu yüklemeyi iptal etmek istediğinizden emin misiniz ?",
+    //    dictRemoveFile: "Dosyayı kaldır",
+    //    dictMaxFilesExceeded: "Daha fazla dosya yükleyemezsiniz.",
+
+    //    init: function () {
+    //        var submitButton = document.querySelector("#submit-all");
+    //        var myDropzone = this; //closure
+
+    //        submitButton.addEventListener("click", function () {
+
+    //            //tell Dropzone to process all queued files
+    //            myDropzone.processQueue();
+    //        });
+    //    }
+    //};
+</script>
+    }

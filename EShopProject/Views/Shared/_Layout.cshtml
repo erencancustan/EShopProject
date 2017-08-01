@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Obaju e-commerce template">
+    <meta name="author" content="Ondrej Svestka | ondrejsvestka.cz">
+    <meta name="keywords" content="">
+
+    <title>  @ViewBag.Title   </title>
+
+    <meta name="keywords" content="">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
+
+    <!-- styles -->
+    <link href="~/assets/obaju/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/assets/obaju/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/obaju/css/animate.min.css" rel="stylesheet" />
+    <link href="~/assets/obaju/css/owl.carousel.css" rel="stylesheet" />
+    <link href="~/assets/obaju/css/owl.theme.css" rel="stylesheet" />
+
+    <!-- theme stylesheet -->
+    <link href="~/assets/obaju/css/style.default.css" rel="stylesheet" id="theme-stylesheet" />
+
+    <!-- your stylesheet with modifications -->
+    <link href="~/assets/obaju/css/custom.css" rel="stylesheet" />
+
+    <script src="~/assets/obaju/js/respond.min.js"></script>
+
+    <link rel="shortcut icon" href="~/assets/obaju/images/favicon.png">
+
+
+</head>
+<body>
+    <h1></h1>
+</body>
+<body>
+
+    @*@Html.Partial("_TopBar")*@
+    @Html.Action("GetTopBar", "UserOperations")
+
+    @Html.Partial("_TopMenu")
+
+    <div id="all">
+
+        @RenderBody()
+
+
+        @Html.Partial("_Footer")
+
+    </div>
+
+    <script src="~/assets/obaju/js/jquery-1.11.0.min.js"></script>
+    <script src="~/assets/obaju/js/bootstrap.min.js"></script>
+    <script src="~/assets/obaju/js/jquery.cookie.js"></script>
+    <script src="~/assets/obaju/js/waypoints.min.js"></script>
+    <script src="~/assets/obaju/js/modernizr.js"></script>
+    <script src="~/assets/obaju/js/bootstrap-hover-dropdown.js"></script>
+    <script src="~/assets/obaju/js/owl.carousel.min.js"></script>
+    <script src="~/assets/obaju/js/front.js"></script>
+    @RenderSection("javascript", false)
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿@using EShopProject.DataAccess.Entity
+@model List<Category>
+
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Kategoriler</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked category-menu">
+            @{
+                foreach (var cat in Model)
+                {
+                    if (cat.ParentId == null)
+                    {
+                        <li>
+                            <a href="@Url.Action("Index", "Product", new { id = @cat.Id })">@cat.Name</a>
+                            <ul>
+                                @foreach (var item in cat.SubCategories)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("Index", "Product", new { id = @item.Id })">@item.Name</a>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+
+                    }
+                }
+            }
+
+
+        </ul>
+
+    </div>
+</div>
+

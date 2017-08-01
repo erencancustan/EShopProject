@@ -1,0 +1,65 @@
+﻿<div class="navbar navbar-default yamm" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+
+            <a class="navbar-brand home" href="@Url.Action("Index","Home")" data-animate-hover="bounce">
+                <img src="~/assets/obaju/images/logo.png" alt="Obaju logo" class="hidden-xs">
+                <img src="~/assets/obaju/images/logo-small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">EC Anasayfa</span>
+            </a>
+            <div class="navbar-buttons">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+                    <span class="sr-only">Menu jnm</span>
+                    <i class="fa fa-align-justify"></i>
+                </button>
+                @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
+                    <span class="sr-only">Toggle search</span>
+                    <i class="fa fa-search"></i>
+                </button>*@
+                <a class="btn btn-default navbar-toggle" href="@Url.Action("Basket", "Product")">
+                    <span class="badge pull-left MyBasket" id="MyBasket">@(TempData.Peek("MyBacketCount"))</span><i class="fa fa-shopping-cart"></i><span class="hidden-sm"> Sepetim</span>
+                </a>
+            </div>
+        </div>
+        <!--/.navbar-header -->
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            @*@Html.Partial("_Menu")*@
+            @Html.Action("GetMenuCategory", "Home")
+
+        </div>
+
+        <div class="navbar-buttons">
+
+            <div class="navbar-collapse collapse right" id="basket-overview">
+                <a href="@Url.Action("Basket", "Product")" class="btn btn-primary navbar-btn">
+                <span class="badge pull-left MyBasket" id="MyBasket" >@(TempData.Peek("MyBacketCount"))</span><i class="fa fa-shopping-cart"></i><span class="hidden-sm"> Sepetim</span>
+                </a>
+            </div>
+
+            @*<div class="navbar-collapse collapse right" id="search-not-mobile">
+                <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
+                    <span class="sr-only">Toggle search</span>
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>*@
+
+        </div>
+
+        @*<div class="collapse clearfix" id="search">
+
+            <form class="navbar-form" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-btn">
+
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+
+                    </span>
+                </div>
+            </form>
+
+        </div>*@
+
+    </div>
+</div>

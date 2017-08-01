@@ -1,0 +1,37 @@
+﻿@model EShopProject.DataAccess.Entity.Attribute
+
+@Html.Partial("_TitleAndMessageDisplay")
+
+<div class="col-xs-8">
+    @using (Html.BeginForm("Save", "Attribute", FormMethod.Post))
+    {
+        @Html.HiddenFor(c => c.Id)
+        <div class="form-group">
+            @Html.LabelFor(c => c.Name, "Özellik Adı")
+            @Html.TextBoxFor(c => c.Name, new { @class = "form-control", required = "required", @maxlength = "30" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.Description, "Özellik Açıklaması")
+            @Html.TextAreaFor(c => c.Description, new { @class = "form-control", required = "required", @maxlength = "1000" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.AttributeValueType, "Değer Tipi")
+            @Html.DropDownListFor(c => c.AttributeValueType, new SelectList(Enum.GetValues(typeof(EShopProject.DataAccess.Entity.AttributeValueType))), new { @class = "form-control", required = "required" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.AttributeGroupId, "Özellik Grubu")
+            @Html.DropDownListFor(c => c.AttributeGroupId, (SelectList)ViewBag.AttributeGroupSelectList, string.Empty, new { @class = "form-control" })
+        </div>
+        if (@Model.Id != 0 && Model.Deleted == true)
+        {
+            <div class="form-group">
+                @Html.LabelFor(c => c.Deleted, "Silindi")
+                @Html.EditorFor(c => c.Deleted, new { @class = "form-control" })
+            </div>
+        }
+        <div class="form-group pull-right">
+            @Html.ActionLink("İptal", "Index", null, new { @class = "btn btn-default" })
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </div>
+    }
+</div>

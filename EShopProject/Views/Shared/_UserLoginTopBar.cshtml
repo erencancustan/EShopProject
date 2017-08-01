@@ -1,0 +1,18 @@
+﻿@using EShopProject.Models
+@model UserInfoModel
+
+
+<div class="col-md-6" data-animate="fadeInDown">
+    <ul class="menu">
+        <li>
+            <a href="#"><i class="fa fa-fw fa-user"></i>@Model.FullName</a>
+        </li>
+        <li>
+            <a href="@Url.Action("MyOrderList","Order")"><i class="fa fa-fw fa-envelope"></i>Siparişlerim</a>
+        </li>
+        <li>
+            <a href="@Url.Action("SignOut","UserOperations")"><i class="fa fa-fw fa-power-off"></i>Çıkış</a>
+        </li>
+    </ul>
+</div>
+

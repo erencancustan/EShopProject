@@ -1,0 +1,101 @@
+﻿@using EShopProject.DataAccess.Entity
+@model List<Category>
+
+@Html.Partial("_TitleAndMessageDisplay")
+
+<div class="col-sm-12">
+    <div>@Html.ActionLink("Yeni Kategori Ekle", "Create", "Category", new { @class = "btn btn-success btn-create" })</div>
+    <div class="clear"></div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Id</th>
+                    <th>Kategory Adı</th>
+                    <th>Açıklama</th>
+                    <th>Silindi</th>
+                    <th>Üst Kategorisi</th>
+                    <th>Ürün Sayısı</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td class="caption">@(i + 1)</td>
+                        <td>@Model[i].Id</td>
+                        <td>@Model[i].Name</td>
+                        <td>@(EShopProject.MyLib.HtmlHelper.NormalizeLength(Model[i].Description, 50))</td>
+                        <td>@(Model[i].Deleted == false ? "Hayır" : "Evet")</td>
+                        <td>@(Model[i].ParentCategory == null ? " " : Model[i].ParentCategory.Name)</td>
+                        <td>@(Model[i].ProductList.Count)</td>
+                        <td>
+                            <a class="btn btn-warning" data-id="@Model[i].Id" type="button" href="@Url.Action("Edit", new {Id = @Model[i].Id , controller = "Category"})">Düzenle</a>
+                            <a class="btn btn-danger delete-button" data-id="@Model[i].Id">Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section javascript{
+    <script>
+
+        bindDeleteButtonClickEvents();
+
+        function bindDeleteButtonClickEvents() {
+
+            var deleteButtons = document.getElementsByClassName('delete-button');
+
+            for (var i = 0; i < deleteButtons.length; i++) {
+
+                deleteButtons[i].addEventListener('click', confirmDelete);
+            }
+        }
+
+        function unbindDeleteButtonClickEvents() {
+
+            var deleteButtons = document.getElementsByClassName('delete-button');
+
+            for (var i = 0; i < deleteButtons.length; i++) {
+
+                deleteButtons[i].removeEventListener('click', confirmDelete);
+
+            }
+        }
+
+        function confirmDelete(e) {
+            event.preventDefault();
+
+            var sender = event.target;
+
+            var result = confirm("Bu kullanıcıyı silmek istediğinize emin misiniz?");
+
+            if (result) {
+                var request = new XMLHttpRequest();
+
+                request.onload = function () {
+
+                    var status = request.status;
+                    var response = request.responseText;
+
+                    if (response)
+                        window.location.reload();
+                }
+
+                request.open('post', '/Admin/Category/DeleteSubmitted', false);
+                request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+                var postData = { id: sender.dataset.id };
+                var jsonString = JSON.stringify(postData);
+
+                request.send(jsonString);
+            }
+        }
+    </script>
+}
+

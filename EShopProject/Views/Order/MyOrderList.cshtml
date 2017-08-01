@@ -1,0 +1,65 @@
+﻿@using EShopProject.Models
+@model List<DetailOrderListModel>
+
+<div id="content">
+    <div class="container">
+
+        <div class="col-md-12">
+
+            <ul class="breadcrumb">
+                <li>
+                    <a href="@Url.Action("Index","Home")">Ana Sayfa</a>
+                </li>
+                <li>
+                    Siparişlerim
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-12" id="customer-orders">
+            <div class="box">
+                <h1>Siparişlerim</h1>
+
+                <hr>
+
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Sipariş Id</th>
+                                <th>Tarih</th>
+                                <th>Toplam Fiyat</th>
+                                <th>Durumu</th>
+                                <th>Adres</th>
+                                <th>İncele</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                <tr>
+                                    <td>@(i+1)</td>
+                                    <th>@Model[i].Id</th>
+                                    <td>@Model[i].OrderDate.ToString("dd/MM/yyyy")</td>
+                                    <td>@Model[i].TotalPrice.ToString("F") &#x20BA;</td>
+                                    <td>
+                                        <span class="label label-info">@Model[i].OrderState</span>
+                                    </td>
+                                    <td>@Model[i].AddressName</td>
+                                    <td>
+                                        <a href="@Url.Action("OrderDetail", "Order", new { id = Model[i].Id })" class="btn btn-primary btn-sm">İncele</a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

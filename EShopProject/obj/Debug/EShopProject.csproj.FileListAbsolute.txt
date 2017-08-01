@@ -1,0 +1,158 @@
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\ApplicationInsights.config
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\roslyn\csc.exe
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\roslyn\vbc.exe
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\roslyn\VBCSCompiler.exe
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\EShopProject.dll.config
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\EShopProject.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\EShopProject.pdb
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\Microsoft.AI.Web.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\System.Web.Helpers.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\System.Web.Mvc.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\System.Web.Razor.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\System.Web.Webpages.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\System.Web.Webpages.Razor.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\Microsoft.AI.Web.xml
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\System.Web.Razor.xml
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\System.Web.Webpages.xml
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\System.Web.Webpages.Razor.xml
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\System.Web.Helpers.xml
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\System.Web.Mvc.xml
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\obj\Debug\EShopProject.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\obj\Debug\EShopProject.pdb
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\EntityFramework.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\EntityFramework.SqlServer.dll
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\EntityFramework.xml
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\bin\EntityFramework.SqlServer.xml
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\obj\Debug\EShopProject.csprojResolveAssemblyReference.cache
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\obj\Debug\EShopProject.Migrations.CreateDBAllTables.resources
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\obj\Debug\EShopProject.csproj.GenerateResource.Cache
+C:\Users\Erencan\Documents\Visual Studio 2015\Projects\EShopProject\EShopProject\obj\Debug\EShopProject.Migrations.CreateDBAllTables1.resources
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\ApplicationInsights.config
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\roslyn\csc.exe
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\roslyn\vbc.exe
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\roslyn\VBCSCompiler.exe
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\EShopProject.dll.config
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\EShopProject.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\EShopProject.pdb
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\EntityFramework.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\EntityFramework.SqlServer.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.Web.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\Microsoft.ApplicationInsights.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\System.Web.Helpers.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\System.Web.Mvc.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\System.Web.Razor.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\System.Web.Webpages.Deployment.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\System.Web.Webpages.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\System.Web.Webpages.Razor.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\EntityFramework.xml
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\EntityFramework.SqlServer.xml
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.Web.xml
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\Microsoft.ApplicationInsights.xml
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\System.Web.Razor.xml
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\System.Web.Webpages.xml
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\System.Web.Webpages.Deployment.xml
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\System.Web.Webpages.Razor.xml
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\System.Web.Helpers.xml
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\bin\System.Web.Mvc.xml
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\obj\Debug\EShopProject.csprojResolveAssemblyReference.cache
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\obj\Debug\EShopProject.Migrations.CreateDBAllTables.resources
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\obj\Debug\EShopProject.Migrations.CreateDBAllTables1.resources
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\obj\Debug\EShopProject.csproj.GenerateResource.Cache
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\obj\Debug\EShopProject.dll
+C:\Users\nbuy_ogrenci\Desktop\EShopProject\EShopProject\obj\Debug\EShopProject.pdb
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\ApplicationInsights.config
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\roslyn\csc.exe
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\roslyn\vbc.exe
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\roslyn\VBCSCompiler.exe
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\EShopProject.dll.config
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\EShopProject.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\EShopProject.pdb
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\EntityFramework.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\EntityFramework.SqlServer.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.Web.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\System.Web.Helpers.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\System.Web.Mvc.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\System.Web.Razor.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\System.Web.Webpages.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\System.Web.Webpages.Razor.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\EntityFramework.xml
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\EntityFramework.SqlServer.xml
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.Web.xml
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\System.Web.Razor.xml
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\System.Web.Webpages.xml
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\System.Web.Webpages.Razor.xml
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\System.Web.Helpers.xml
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\bin\System.Web.Mvc.xml
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\obj\Debug\EShopProject.csprojResolveAssemblyReference.cache
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\obj\Debug\EShopProject.Migrations.CreateDBAllTables.resources
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\obj\Debug\EShopProject.Migrations.CreateDBAllTables1.resources
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\obj\Debug\EShopProject.csproj.GenerateResource.Cache
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\obj\Debug\EShopProject.dll
+C:\Users\Erencan\Desktop\EShopProject\EShopProject\obj\Debug\EShopProject.pdb

@@ -1,0 +1,91 @@
+﻿@using EShopProject.DataAccess.Entity
+@model Order
+<div id="content">
+    <div class="container">
+
+        <div class="col-md-12">
+
+            <ul class="breadcrumb">
+                <li>
+                    <a href="@Url.Action("Index","Home")">Ana Sayfa</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("MyOrderList","Order")">Siparişlerim</a>
+                </li>
+                <li> Sipariş No : @Model.Id</li>
+            </ul>
+        </div>
+
+        <div class="col-md-12" id="customer-order">
+            <div class="box">
+                <h1>Sipariş No : @Model.Id</h1>
+
+                <p class="lead">Siparişiniz @(Model.OrderDate.ToString("dd/MM/yyyy")) tarihinde verilmişti. Şuan @Model.OrderState durumundadır.</p>
+                <hr>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Ürün</th>
+                                <th>Miktarı</th>
+                                <th>Birim Fiyatı</th>
+                                <th>Toplam</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < Model.OrderDetailList.Count; i++)
+                            {
+                                <tr>
+                                    <td>
+                                        <a href="@Url.Action("Detail", "Product", new { id = Model.OrderDetailList[i].Product.Id })">
+                                            <img src="@Model.OrderDetailList[i].Product.ImageList[0].FilePath" alt="@Model.OrderDetailList[i].Product.Name">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("Detail", "Product", new { id = Model.OrderDetailList[i].Product.Id })">@Model.OrderDetailList[i].Product.Name</a>
+                                    </td>
+                                    <td>@Model.OrderDetailList[i].Quantity </td>
+                                    <td>@(Model.OrderDetailList[i].UnitPrice.ToString("F")) &#x20BA;</td>
+                                    <td>@((Model.OrderDetailList[i].UnitPrice * Model.OrderDetailList[i].Quantity).ToString("F")) &#x20BA;</td>
+                                    
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4" class="text-right">Sipariş Toplamı : </td>
+                                <th>@ViewData["TotalPrice"] &#x20BA;</th>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="text-right">Kargo ve Nakliyat : </td>
+                                <th>0.00</th>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="text-right">Toplam : </td>
+                                <th>@ViewData["TotalPrice"] &#x20BA;</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+
+                <div class="row addresses">
+                    <div class="col-md-6 col-md-offset-4">
+                        <h2>Shipping address</h2>
+                        <p>
+                            @Model.Address.Name
+                            <br>@Model.Address.PostAddress
+                            <br>@Model.Address.City
+                            <br>@Model.Address.Country  / @Model.Address.Region
+                            <br>@Model.Address.PostalCode
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+</div>

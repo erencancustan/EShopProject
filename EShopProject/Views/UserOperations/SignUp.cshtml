@@ -1,0 +1,51 @@
+﻿@using EShopProject.Models
+@model UserModel
+
+<div id="content">
+    <div class="container">
+        <div class="col-md-12">
+
+            <ul class="breadcrumb">
+                <li>
+                   @Html.ActionLink("Ana Sayfa", "Index","Home")
+                </li>
+                <li>@ViewBag.Title</li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-6 col-md-offset-3">
+            <div class="box">
+                <h1>Yeni Üyelik</h1>
+                <p>Yeni kullanıcı uluşturun e bültenler mail gelsin kampanyaları kaçırmayın.</p>
+                <hr>
+                @Html.Partial("_MessageDisplay")
+                @using (Html.BeginForm("Save", "UserOperations", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(u => u.EmailAddress, "Email")
+                        @Html.TextBoxFor(u => u.EmailAddress, new { @class = "form-control", type = "email", placeholder = "abcd@abcmail.com", required = "required", @maxlength = "50" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(u => u.Password, "Şifre")
+                        @Html.PasswordFor(u => u.Password, new { @class = "form-control", required = "required", @maxlength = "30" })
+                    </div>
+                    if (@Model.Id != 0)
+                    {
+                        @Html.HiddenFor(u => u.CreateDate, new { Value = Model.CreateDate })
+                        @Html.HiddenFor(u => u.LastLoginDate, new { Value = Model.LastLoginDate == null ? null : Model.LastLoginDate })
+                        @Html.HiddenFor(u => u.MyAuthorization, new { Value = EShopProject.DataAccess.Entity.MyAuthorization.StandartUser })
+                    }
+                    else
+                    {
+                        @Html.HiddenFor(c => c.CreateDate, new { Value = DateTime.Now.ToShortDateString() })
+                    }
+                    <div class="form-group text-center">
+                        @Html.ActionLink("İptal", "Index", null, new { @class = "btn btn-default" })
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                    </div>
+                }
+            </div>
+        </div>
+     </div>
+</div>

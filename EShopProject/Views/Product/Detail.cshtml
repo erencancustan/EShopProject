@@ -1,0 +1,204 @@
+﻿@using EShopProject.Models
+@model ProductModel
+
+<div id="content">
+    <div class="container">
+
+        <div class="col-md-12">
+            @(new HtmlString(ViewData["SideCategoryTrees"].ToString()))
+        </div>
+
+        @Html.Partial("_LeftFilterMenu")
+
+        <div class="col-md-9">
+
+            <div class="row" id="productMain">
+                <div class="col-sm-6">
+                    <div id="mainImage">
+                        <img src="@Model.Image.FilePath" alt="" class="img-responsive">
+                    </div>
+
+                    <div class="ribbon sale">
+                        <div class="theribbon">İNDİRİM</div>
+                        <div class="ribbon-background"></div>
+                    </div>
+                    <!-- /.ribbon -->
+
+                    <div class="ribbon new">
+                        <div class="theribbon">YENİ</div>
+                        <div class="ribbon-background"></div>
+                    </div>
+                    <!-- /.ribbon -->
+
+                </div>
+                <div class="col-sm-6">
+                    <div class="box">
+                        <h1 class="text-center">@Model.Name</h1>
+                        <p class="goToDescription">
+                            <a href="#details" class="scroll-to">Daha Fazla Bilgi</a>
+                        </p>
+                        <p class="price">@(Model.Price.ToString("F")) &#x20BA;</p>
+
+                        <p class="text-center buttons">
+                            <button type="button" class="btn btn-primary" data-id="@Model.Id" id="addToCart"><i class="fa fa-shopping-cart"></i>Sepete Ekle</button>
+                            <input type="number" value="1" class="form-control pull-left" min="1"  name="Quantity" id="quantity" style="width: 60px;">
+                            @*<a href="basket.html" class="btn btn-default"><i class="fa fa-heart"></i> Add to wishlist</a>*@
+                        </p>
+
+
+                    </div>
+
+                    <div class="row" id="thumbs">
+                        @foreach (var item in Model.ImageList)
+                        {
+                            <div class="col-xs-4">
+                                <a href="@item.FilePath" class="thumb">
+                                    <img src="@item.FilePath" alt="" class="img-responsive">
+                                </a>
+                            </div>
+                          
+                        }
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="box" id="details">
+                <p>
+                    <h4>Ürün Açıklaması</h4>
+                <p>@(Model.Description)</p>
+
+                <h4>Özellikler</h4>
+
+                <ul>@*TODO: gruplama eklenebilir*@
+                    @for (int i = 0; i < Model.ProductToAttributeList.Count; i++)
+                    {
+                        if (Model.ProductToAttributeList[i].Attribute.AttributeGroupId != null)
+                        {
+                            <li>@(Model.ProductToAttributeList[i].Attribute.AttributeGroup.Name) > @(Model.ProductToAttributeList[i].Attribute.Name) : @(Model.ProductToAttributeList[i].Value)</li>
+                        }
+                        else
+                        {
+                            <li>@(Model.ProductToAttributeList[i].Attribute.Name) : @(Model.ProductToAttributeList[i].Value)</li>
+                        }
+                    }
+                </ul>
+            </div>
+
+            @*<div class="row same-height-row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="box same-height">
+                            <h3>Bu Ürüne Bakanların Tercih Ettiği Ürünler</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product same-height">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <a href="detail.html">
+                                            <img src="img/product2.jpg" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a href="detail.html">
+                                            <img src="img/product2_2.jpg" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="detail.html" class="invisible">
+                                <img src="img/product2.jpg" alt="" class="img-responsive">
+                            </a>
+                            <div class="text">
+                                <h3>Fur coat</h3>
+                                <p class="price">$143</p>
+                            </div>
+                        </div>
+                        <!-- /.product -->
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product same-height">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <a href="detail.html">
+                                            <img src="img/product1.jpg" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a href="detail.html">
+                                            <img src="img/product1_2.jpg" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="detail.html" class="invisible">
+                                <img src="img/product1.jpg" alt="" class="img-responsive">
+                            </a>
+                            <div class="text">
+                                <h3>Fur coat</h3>
+                                <p class="price">$143</p>
+                            </div>
+                        </div>
+                        <!-- /.product -->
+                    </div>
+                
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product same-height">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <a href="detail.html">
+                                            <img src="img/product3.jpg" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a href="detail.html">
+                                            <img src="img/product3_2.jpg" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="detail.html" class="invisible">
+                                <img src="img/product3.jpg" alt="" class="img-responsive">
+                            </a>
+                            <div class="text">
+                                <h3>Fur coat</h3>
+                                <p class="price">$143</p>
+
+                            </div>
+                        </div>
+                        <!-- /.product -->
+                    </div>
+
+                </div>*@
+
+
+        </div>
+    </div>
+</div>
+
+@section javascript{
+
+<script>
+
+        $('#addToCart').click(function() {
+
+         $.post('@Url.Action("AddToCart", "Product")',
+        {
+            productId: $(this).attr('data-id'),
+            quantity:  $(quantity).val()
+        },
+        function(data,status){
+            //alert("Data: " + data + "\nStatus: " + status);
+            $(document.getElementsByClassName('MyBasket')).html(data);
+        });
+          });
+
+</script>
+    
+}

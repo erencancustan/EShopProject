@@ -1,0 +1,117 @@
+﻿@using EShopProject.Models
+@model CustomerModel
+
+
+<div id="content">
+    <div class="container">
+
+        <div class="col-md-12">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="@Url.Action("Index","Home")">Ana Sayfa</a>
+                </li>
+                <li>Üyelik Bilgileri</li>
+            </ul>
+        </div>
+
+        <div class="col-md-12" id="checkout">
+
+            <div class="box">
+                @Html.Partial("_MessageDisplay")
+                @using (Html.BeginForm("CustomerSave", "UserOperations", FormMethod.Post))
+                {
+                    <h1>Üyelik Bilgileri</h1>
+                    <hr />
+                    <div class="content">
+                        @Html.HiddenFor(c => c.Id)
+                        @Html.HiddenFor(c => c.User.Id)
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(c => c.FirstName, "Adınız")
+                                    @Html.TextBoxFor(c => c.FirstName, new { @class = "form-control", required = "required", @maxlength = "30" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(c => c.LastName, "Soyadınız")
+                                    @Html.TextBoxFor(c => c.LastName, new { @class = "form-control", required = "required", @maxlength = "30" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(c => c.BirthOfDate, "Doğum Tarihiniz")
+                                    @{if (Model.Id == 0)
+                                        {
+                                    @Html.TextBoxFor(c => c.BirthOfDate, "{0:yyyy-MM-dd}", new { @class = "form-control", Value = DateTime.Now.ToShortDateString(), required = "required" })
+                                        }
+                                        else
+                                        {
+                                    @Html.TextBoxFor(c => c.BirthOfDate, "{0:yyyy-MM-dd}", new { @class = "form-control", required = "required" })
+                                        }
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(c => c.Gender, "Cinsiyetiniz")
+                                    @Html.DropDownListFor(c => c.Gender, new SelectList(Enum.GetValues(typeof(EShopProject.DataAccess.Entity.Gender))), new { @class = "form-control", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                                @Html.HiddenFor(c => c.Address.Id)
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(a => a.Address.Name, "Adres Adı")
+                                        @Html.TextBoxFor(a => a.Address.Name, new { @class = "form-control", required = "required", @maxlength = "30" })
+                                    </div>
+                                </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    @Html.LabelFor(a => a.Address.Country, "Ülke")
+                                    @Html.TextBoxFor(a => a.Address.Country, new { @class = "form-control", required = "required", @maxlength = "30" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    @Html.LabelFor(a => a.Address.City, "Şehir")
+                                    @Html.TextBoxFor(a => a.Address.City, new { @class = "form-control", required = "required", @maxlength = "30" })
+                                </div>
+                            </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(a => a.Address.PostAddress, "Detaylı Adres")
+                                        @Html.TextAreaFor(a => a.Address.PostAddress, new { @class = "form-control", required = "required", @maxlength = "500" })
+                                    </div>
+                                </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    @Html.LabelFor(a => a.Address.Region, "Bölge")
+                                    @Html.TextBoxFor(a => a.Address.Region, new { @class = "form-control", required = "required", @maxlength = "30" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    @Html.LabelFor(a => a.Address.PostalCode, "Posta Kodu")
+                                    @Html.TextBoxFor(a => a.Address.PostalCode, new { @class = "form-control", required = "required", @maxlength = "10" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-footer">
+                        <div class="pull-right">
+                            <a href="@Url.Action("Index", "Home")" class="btn btn-default">İptal</a>
+                            <button type="submit" class="btn btn-primary">Kaydet</button>
+                        </div>
+                    </div>
+                                        }
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+</div>

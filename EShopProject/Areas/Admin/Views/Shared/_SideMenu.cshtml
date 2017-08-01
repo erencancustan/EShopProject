@@ -1,0 +1,32 @@
+﻿<div id="sidebar">
+    <div id="logo">
+        <a href="@Url.Action("Index", new { controller="Home" })">
+            <img src="@Url.Content("~/assets/caprice/images/logo2.png")" , alt="Logo" />
+        </a>
+    </div>
+    <div id="menu" class="menu-v">
+        <ul>
+            <li>
+                <a href="@Url.Action("Index","Category")">Kategori İşlemleri</a>
+                <ul>
+                    <li><a href="@Url.Action("Index","Category")">Kategoriler</a></li>
+                    <li><a href="@Url.Action("Create","Category")">Kategori Ekle</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="@Url.Action("Index","Product")">Ürün İşlemleri</a>
+                <ul>
+                    <li><a href="@Url.Action("Index","Product")">Ürünler</a></li>
+                    <li><a href="@Url.Action("Create","Product")">Ürün Ekle</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="@Url.Action("Create","Attribute")">Özellik Ekle</a>
+                <ul>
+                    <li><a href="@Url.Action("Index","Attribute")">Özellik</a></li>
+                    <li><a href="@Url.Action("Create","Attribute")">Özellik Ekle</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

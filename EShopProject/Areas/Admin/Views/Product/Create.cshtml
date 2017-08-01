@@ -1,0 +1,312 @@
+﻿@using EShopProject.Areas.Admin.Models
+@model ProductModel
+
+@Html.Partial("_TitleAndMessageDisplay")
+
+<div class="col-xs-10">
+    @using (Html.BeginForm("Save", "Product", FormMethod.Post))
+    {
+        @Html.HiddenFor(c => c.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Category.Id, "Kategorisi")
+            @Html.DropDownListFor(m => m.Category.Id, (SelectList)ViewBag.CategorySelectList, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(p => p.Name, "Ürün Adı")
+            @Html.TextBoxFor(p => p.Name, new { @class = "form-control", required = "required", @maxlength = "30" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(p => p.Description, "Ürün Açıklaması")
+            @Html.TextAreaFor(p => p.Description, new { @class = "form-control", required = "required", @maxlength = "1000" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(p => p.Price, "Birim Fiyatı")
+            @{var formated = String.Format("{0:0.00}", Model.Price);}
+            @Html.TextBoxFor(m => m.Price, formated, new { @class = "form-control", required = "required" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(p => p.UnitInStock, "Stok Miktarı")
+            @Html.TextBoxFor(p => p.UnitInStock, new { @class = "form-control", required = "required", @type = "number", @min = "0", @step = "1" })
+        </div>
+
+                if (@Model.Id != 0 && Model.Deleted == true)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Deleted, "Silindi")
+                        @Html.EditorFor(m => m.Deleted, new { @class = "form-control" })
+                    </div>
+                }
+                <hr />
+
+                <div class="row">
+                    <div class="form-group col-sm-12">
+                        <button type="button" id="attribute_add" class="btn btn-default"> Özellik Ekle</button>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="dd" id="main-list">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Özellik Türü</th>
+                                        <th>Özellik Değeri</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.ProductToAttributeList.Count > 0)
+                                    {
+                                        for (int i = 0; i < Model.ProductToAttributeList.Count; i++)
+                                        {
+                                            <tr id="attribute-@(i)">
+                                                <td>
+                                                    <select class="form-control" name="productPropertyType">
+                                                        @foreach (var at in ViewBag.AttributeSelectList)
+                                                        {
+                                                            if (@at.Value == Model.ProductToAttributeList[i].AttributeId.ToString())
+                                                            {<option value="@at.Value" selected>@at.Text</option>}
+                                                            else
+                                                            {   <option value="@at.Value">@at.Text</option>}
+                                                        }
+                                                        </select>
+                                                        </td>
+                                            <td>
+                                                @(Html.TextBoxFor(m => Model.ProductToAttributeList[i].Value, new { @class = "form-control" }))
+                                            </td>
+                                            <td>
+                                                <button class="form-control" id="@i" type="button" onclick="deleteButton(this.id)">Sil</button>
+                                            </td>
+                                        </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class="col-sm-12">
+                    <div class="row upload-content">
+                        <input type="file" name="file" />
+                        <input type="file" name="file" />
+                    </div>
+
+                    <div class="row">
+                        <div id="fileList" class="hidden">
+                            <h3>Dosya Listesi</h3>
+                            <hr />
+
+                        </div>
+                    </div>
+                </div>
+
+                <hr />
+                <div class="clear"></div>
+                <div class="form-group text-right">
+                    @Html.ActionLink("İptal", "Index", null, new { @class = "btn btn-default" })
+                    <button type="submit" class="btn btn-primary" id="kaydet">Kaydet</button>
+                </div>
+                }
+
+</div>
+
+@section javascript{
+    <script src="~/assets/dropzone/dropzone.min.js"></script>
+
+    <script>
+        counter = 1;
+        var mainlist = $('#main-list > table >tbody');
+
+        $('#attribute_add').on('click', function () {
+            FillAttributeDropDown(counter);
+            counter++;
+        });
+
+        function FillAttributeDropDown(id) {
+            $.ajax({
+                url: '@Url.Action("GetAllAttribute", "Product")',
+                method: 'post',
+                data: {},
+                success: function (data) {
+                    var attributeid = 0;
+                    var combo = $("<select></select>").addClass('form-control').attr("name", "productPropertyType");
+                    $.each(data, function (i, attributeNode) {
+                        combo.append($('<option></option>').val(attributeNode.Value).html(attributeNode.Text).data("asd", attributeNode.AttributeValueType));
+                        attributeid = attributeNode.Value;
+                    });
+
+                    var tableRow = $('<tr>').attr("id", "attribute-" + id);
+
+                    var AttributeSelectColumn = $('<td>').append(combo);
+                    var AttributeValueColumn = $('<td>').append($('<input>').attr("Type", "Text").attr("name", "productPropertyValue").attr("maxlength","300").addClass('form-control'));
+                    var AttributeSetRemoveButtonColumn = $('<td>').append($('<button>').addClass('form-control').text('Sil').attr("Type", "button").on('click', function () {
+                        var deleteRow = document.getElementById('attribute-' + id);
+                        $(deleteRow).remove();
+                    }));
+
+                    tableRow.append(AttributeSelectColumn);
+                    tableRow.append(AttributeValueColumn);
+                    tableRow.append(AttributeSetRemoveButtonColumn);
+
+                    $('#main-list > table > tbody').append(tableRow);
+                },
+                error: function (reponse) {
+                    alert("error : " + reponse);
+                }
+            });
+        }
+
+        function deleteButton(id) {
+            var deleteRow = document.getElementById('attribute-' + id);
+            $(deleteRow).remove();
+        }
+
+    </script>
+
+<script>
+    var barIndex = 1;
+    $('#fileupload').fileupload({
+        dataType: "json",
+        url: "/Product/UploadData",
+        limitConCurrentUploads: 1,
+        sequentialUploads: true,
+        progressInterval: 100,
+        maxChunkSize: 10000,
+
+        add: function (e, data) {
+            barIndex = 1;
+            $('#fileList').removeClass('hidden').append('<div class="file-part">'
+                + '<h5>Dosya Adi:' + data.files[0].name + '</h5>'
+                + '<h5>Dosya Boyutu:' + bytesToSize(data.files[0].size) + '</h5>'
+                + '<h5>Dosya Tipi:' + data.files[0].type + '</h5>'
+                + '<div class="progress">'
+                + '<div  class="bar" style="width:0%">'
+                + '</div></div></div></div></hr>');
+
+            $('#kaydet').click(function () {
+                $("#GenelYuzde").removeClass("hidden");
+                data.submit();
+            });
+        },
+
+        progress: function (e, data) {
+            var yuzde = parseInt((data.loaded / data.total) * 100);
+            $('.bar:eq(' + barIndex + ')').css("width", yuzde + "%");
+            $('.bar:eq(' + barIndex + ')').empty();
+            if (yuzde == 100) {
+                $('.bar:eq(' + barIndex + ')').append("<span>Yükleme Tamamlandı...</span>")
+            }
+            else {
+                $('.bar:eq(' + barIndex + ')').append("<span>Yükleniyor...</span>")
+            }
+        },
+
+        progressall: function (e, data) {
+            var yuzde = parseInt((data.loaded / data.total) * 100);
+            $("#overBar").css("width", yuzde + "%");
+
+            if (yuzde == 100) {
+                $("#tumYuklemeBilgi").text("Yükleme Tamamlandı...");
+            }
+            else {
+                $("#tumYuklemeBilgi").text("Yükleniyor...");
+            }
+        },
+
+        done: function (e, data) {
+            barIndex++;
+        }
+    });
+
+    function bytesToSize(bytes) {
+        var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+        if (bytes == 0) return '0 Byte';
+        var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+        return (bytes / Math.pow(1024, i)).toFixed(3) + ' ' + sizes[i];
+    };
+</script>
+
+
+
+    <script type="text/javascript">
+        Dropzone.autoDiscover = false;
+
+        var myDropzone = new Dropzone(document.getElementById('product-image-drpzone'), {
+            uploadMultiple: false,
+            acceptedFiles: '.jpg,.png,.jpeg,.gif',
+            parallelUploads: 4,
+            maxFilesize: 2,
+            addRemoveLinks: true,
+            maxFiles: 4,
+            url: "/Admin/Product/ImageUpload",
+            previewsContainer: '#previews',
+            thumbnailWidth: 100,
+            thumbnailHeight: 100,
+
+            init: function () {
+
+                // This adds the bootstrap class col-sm-6 to the dropzone preview
+                var classIndex = this.options.previewTemplate.indexOf('dz-preview');
+                this.options.previewTemplate = this.options.previewTemplate.slice(0, classIndex) + 'col-sm-6 ' + this.options.previewTemplate.slice(classIndex);
+
+                this.on('addedfile', function (file) {
+                    $('.drp-image').first().remove();
+                });
+            }
+        });
+
+        //Dropzone.options.dropzoneForm = {
+
+        //    autoProcessQueue: false,
+        //    acceptedFiles: "image/jpeg,image/png,image/gif",
+        //    maxFilesize: 2,
+        //    maxThumbnailFilesize: 4,
+        //    addRemoveLinks: true,
+        //    dictDefaultMessage: "Resimleri buraya yükleyin.",
+        //    dictRemoveFile: "Dosyayı kaldır",
+        //    dictMaxFilesExceeded: "Daha fazla dosya yükleyemezsiniz.",
+        //    init: function () {
+        //        var submitButton = document.querySelector("#kaydet");
+        //        var myDropzone = this; 
+
+        //        submitButton.addEventListener("click", function () {
+        //            myDropzone.processQueue();
+        //        });
+        //    }
+        //};
+
+        //$(document).ready(function () {
+
+        //    Dropzone.autoDiscover = false;
+
+        //    $("#dZUpload").dropzone({
+        //        url: "/Admin/Product/ImageUpload",
+                
+        //        dictFallbackMessage: "Tarayıcınız sürükle ve bırak dosya yükleme desteklemiyor.",
+        //        dictFallbackText: "Please use the fallback form below to upload your files like in the olden days.",
+        //        dictFileTooBig: "Dosya çok büyük ({{filesize}} MiB) Maks. Dosya boyutu: {{maxFilesize}} MiB.",
+        //        dictInvalidFileType: "Bu tür dosyalar yükleyemezsiniz.",
+        //        dictResponseError: "Sunucu {{statusCode}} koduyla yanıt verdi.",
+        //        dictCancelUpload: "Yüklemeyi iptal et",
+        //        dictCancelUploadConfirmation: "Bu yüklemeyi iptal etmek istediğinizden emin misiniz ?",
+        //        dictRemoveFile: "Dosyayı kaldır",
+        //        dictMaxFilesExceeded: "Daha fazla dosya yükleyemezsiniz.",
+        //        success: function (file, response) {
+        //            var imgName = response;
+        //            file.previewElement.classList.add("dz-success");
+        //            console.log("Resim Başarıyla yüklendi :" + imgName);
+        //        },
+        //        error: function (file, response) {
+        //            file.previewElement.classList.add("dz-error");
+        //        }
+        //    });
+        //});
+
+    </script>
+
+}
